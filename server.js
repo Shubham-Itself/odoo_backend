@@ -15,12 +15,15 @@ const queryApiKey = process.env.ODOO_QUERY_API_KEY;
 // 🎓 Student Registration Route
 app.post('/register', async (req, res) => {
   try {
-    const { name, email, phone, course, location, referenceCode } = req.body;
+    const { name, email, phone, highestQualification, locationPreferences, referenceCode , program , source , nationality , dateOfBirth , gender } = req.body;
 
     const description = `
-Course: ${course || 'N/A'}
-Location Preference: ${location || 'N/A'}
-Reference Code: ${referenceCode || 'N/A'}
+Course: ${program || 'Not Provided'}
+Location Preference: ${locationPreferences || 'Not Provided'}
+Highest Qualification: ${highestQualification || 'Not Provided'}
+Nationality: ${nationality || "Not Provided"}
+Date Of Birth: ${dateOfBirth || 'Not Provided'}
+Gender: ${gender || 'Not Provided'}
 Submitted via website form.
     `.trim();
 
